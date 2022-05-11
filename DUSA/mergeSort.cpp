@@ -3,24 +3,24 @@
 using namespace std;
 
 
-void merge(int arr[], int s, int e){
+void merge(int *arr, int s, int e){
 
 	int m = (s+e)/2;
 
-	int lenght1 = m - s + 1 ;
+	int length1 = m - s + 1 ;
 	int length2 = e - m ;
 
 	//now new array banalo
-	int *first = new int[lenght1]; //arr one
-	int *second = new int[lenght2]; //arr two
+	int *first = new int[length1]; //arr one
+	int *second = new int[length2]; //arr two
 
 	//now copy karlo 
     int mainArrayIndex = s;
     for( int i = 0; i < length1; i++)
     	first[i] = arr[mainArrayIndex++];
 
-    mainArrayIndex = mid + 1;
-    for( int j = m+1; j < length2; j++)
+    mainArrayIndex = m + 1;
+    for( int j = 0; j < length2; j++)
     	second[j] = arr[mainArrayIndex++];
 
     //merge 2 sorted arrays
@@ -28,26 +28,26 @@ void merge(int arr[], int s, int e){
 
     mainArrayIndex = s;
 
-    while(index1 < lenght1 && index2 < length2 )
+    while(index1 < length1 && index2 < length2 )
     {
     	if(first[index1] < second[index2])
-    		arr[mainArrayIndex] = first[index1++];
+    		arr[mainArrayIndex++] = first[index1++];
     	
     	else
-    		arr[mainArrayIndex] = second[index2++];
+    		arr[mainArrayIndex++] = second[index2++];
     }
 
-    while(index1 < length){
-    	arr[mainArrayIndex] = first[index1++];
+    while(index1 < length1){
+    	arr[mainArrayIndex++] = first[index1++];
     }
 
     while(index2 < length2){
-    	arr[mainArrayIndex] = second[index2++];
+    	arr[mainArrayIndex++] = second[index2++];
     }
 
 }
 
-void mergeSort(int arr[], int start, int end)
+void mergeSort(int *arr, int start, int end)
 {
 	//base case
 	if(start >= end)   //be careful
