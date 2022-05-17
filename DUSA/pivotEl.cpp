@@ -3,19 +3,21 @@
 using namespace std;
 
 int pivotIndex(vector<int>& arr){
+
 	int n = arr.size();
 	int sumL[n], sumR[n];
 
 	sumL[0] = 0;
+	
 	for(int i=1; i<n-1; i++)
 		sumL[i] = sumL[i-1] + arr[i-1];
 	
 	sumR[n-1] = 0;
+	
 	for(int j=n-2; j>=0; j--)
 		sumR[j] = sumR[j+1] + arr[j+1];
 
-	for(int i=0; i<n; i++)
-	{
+	for(int i=0; i<n; i++){
 		if(sumL[i]==sumR[i])
 			return i;
 	}
