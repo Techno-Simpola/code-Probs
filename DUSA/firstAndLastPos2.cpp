@@ -72,5 +72,6 @@ int main(){
 	int key ; cin >> key;
 	
 	pair<int,int> p = firstAndLastPos(v, n, key);
+    cout << p.first << " " << p.second << endl;
 	return 0;
 }
