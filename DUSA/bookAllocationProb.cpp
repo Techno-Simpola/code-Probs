@@ -38,7 +38,7 @@ int minAllocated(vector<int>& books, int n, int noOfStud){
 	int e = sum; int ans = -1;
 	int mid = s+(e-s)/2;
 
-	while(s<e){
+	while(s<=e){
 		if(isPossible(books, noOfStud, mid, n))
 		{
 			 ans = mid;
