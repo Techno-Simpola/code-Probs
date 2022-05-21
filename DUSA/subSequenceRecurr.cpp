@@ -18,6 +18,7 @@ void solve(string input, int index, string output, vector<string> &ans)
     // including case
     char ele = input[index];
     output.push_back(ele);
+
     solve(input, index + 1, output, ans);
 }
 
@@ -37,4 +38,6 @@ int main()
 
     int index = 0;
     ans = subSequence(input, index);
+
+    return 0;
 }

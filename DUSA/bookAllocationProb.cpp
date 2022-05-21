@@ -11,8 +11,8 @@ bool isPossible(vector<int> books, int noOfStud, int mid, int n){
 	for(int i=0; i<n; i++){
 
 		if(pageSum+books[i] <= mid)
-			pageSum+=books[i];
-
+			pageSum += books[i];
+		
 		else{
 			cntStud++;
 			if(cntStud > noOfStud || books[i] > mid){
