@@ -14,6 +14,7 @@ void merge(int *arr, int s, int e){
 	int *first = new int[length1]; //arr one
 	int *second = new int[length2]; //arr two
 
+
 	//now copy karlo 
     int mainArrayIndex = s;
     for( int i = 0; i < length1; i++)
@@ -22,6 +23,7 @@ void merge(int *arr, int s, int e){
     mainArrayIndex = m + 1;
     for( int j = 0; j < length2; j++)
     	second[j] = arr[mainArrayIndex++];
+
 
     //merge 2 sorted arrays
     int index1 = 0, index2 = 0;
