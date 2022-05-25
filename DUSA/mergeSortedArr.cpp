@@ -5,27 +5,8 @@ using namespace std;
 //merging two sorted arrays
 vector<int> solve(vector<int>& v1, vector<int>& v2, int n, int m){
 
-	int length1 = n;
-	int length2 = m;
-	int totLen = n+m;
-
-	int *arr1 = new int[length1];
-	int *arr2 = new int[length2];
-
-	vector<int> ans(totLen);
-
-	int mainArrIdx = 0;
-
-	for(int i=0; i<length1; i++)
-		arr1[i] = v1[mainArrIdx++];
-
-	mainArrIdx = length1 + 1;
-
-	for(int i=0; i<length2; i++)
-		arr2[i] = v2[mainArrIdx++];
-
 	int idx1 = 0, idx2 = 0;
-	mainArrIdx = 0;
+	int mainArrIdx = 0;
 	
 	while( idx1 < length1 && idx2 < length2 )
 	{
