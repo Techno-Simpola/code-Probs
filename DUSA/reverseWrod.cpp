@@ -17,21 +17,20 @@ string reverseWords(string& str){
 			e--;
 	}
 
-	string news = str.substr(s,e);
-
+	string news = str.substr(s,e+1);
+	news = news + " ";
 	int l = 0;
 	int r = news.length()-1;
 
 	string ans="";
 	string temp="";
 	
-	while(l<r){
+	while(l<=r){
+
 		char c = news[l];
 
 		if(c != ' ')
-		{
 			temp += c;
-		}
 
 		else{
 			if( temp != "" ){
@@ -59,7 +58,7 @@ int main()
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	string str = " cool are   we ";
+	string str = "the sky is blue";
 	string ans = reverseWords(str);	
 
 	cout << ans << endl;
