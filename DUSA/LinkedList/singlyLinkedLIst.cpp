@@ -20,23 +20,52 @@ public:
 void insertAtHead(Node* &head, int data){
 	//new node
 	Node *temp = new Node(data);
-	temp->next = head;
+	temp -> next = head;
 	head = temp;
 }
 
 //inserting from the tail
-void insertAtTail(Node* tail, int data){
+void insertAtTail(Node* &tail, int data){
 
-	Node* temp = new Node;
-	
+	Node* temp = new Node(data);
+	tail -> next = temp;
+	tail = temp; 
+
 }
 
+//insert in between
+void insertAtPos(Node* &head,int pos, int data){
+
+	if(pos == 1){
+		insertAtHead(head,data); return;
+	}
+
+
+	//traverse till n-1 node....
+	Node* temp = head;
+	int count = 1;
+
+	while(count < pos-1){
+		temp = temp -> next;
+		count++; 
+	}
+
+	if(temp -> next == NULL) //last node in the total LL
+	{
+		insertAtTail(head, data);
+		return ;
+	}
+
+	//creating node for data
+	Node* nodeToInsert = new Node(data);
+	nodeToInsert -> next = temp -> next;
+	temp -> next = nodeToInsert;
+}
 
 //travering through the list and printing the data
 void print(Node* &head){
-
+	
 	Node* temp = head;
-
 	while(temp!=NULL){
 
 		cout << temp -> data << " ";
@@ -55,23 +84,27 @@ int main(){
 	#endif
 
 	Node* node1 = new Node(10);
+	Node* head = node1;
+	
+	// insertAtHead(head, 12);
+	// insertAtHead(head, 15);
+	// insertAtHead(head, 16);
+	// insertAtHead(head, 17);
+	// cout << "Inserted at the head: " << endl;
+	// print(head);
 
-	Node *head = node1;
+	
+	Node* tail = node1;
+	insertAtTail(tail, 11);
+	insertAtTail(tail, 19);
+	insertAtTail(tail, 21);
+	insertAtTail(tail, 124);
+	insertAtTail(tail, 171);
+	cout << "Insterted at the tail: " << endl;
 	print(head);
 
-	insertAtHead(head, 12);
-	print(head);
-
-	insertAtHead(head, 15);
-	print(head);
-
-	insertAtHead(head, 16);
-	print(head);
-
-	insertAtHead(head, 17);
-	print(head);
-
-	insertAtHead(head, 18);
+	insertAtPos(head, 3, 22);
+	cout << "Insterted in between: " << endl;
 	print(head);
 	// //making new node and inserting in the begining
 	// Node* temp = new Node(9);
