@@ -34,7 +34,7 @@ void insertAtTail(Node* &tail, int data){
 }
 
 //insert in between
-void insertAtPos(Node* &head,int pos, int data){
+void insertAtPos(Node* &tail, Node* &head,int pos, int data){
 
 	if(pos == 1){
 		insertAtHead(head,data); return;
@@ -103,7 +103,7 @@ int main(){
 	cout << "Insterted at the tail: " << endl;
 	print(head);
 
-	insertAtPos(head, 3, 22);
+	insertAtPos(tail, head, 3, 22);
 	cout << "Insterted in between: " << endl;
 	print(head);
 	// //making new node and inserting in the begining
