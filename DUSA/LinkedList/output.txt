@@ -2,3 +2,5 @@ Insterted at the tail:
 10 11 19 21 124 171 
 Insterted in between: 
 10 11 22 19 21 124 171 
+memory deleted
+10 11 22 21 124 171 

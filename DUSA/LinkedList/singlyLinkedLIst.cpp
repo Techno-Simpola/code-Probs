@@ -13,6 +13,19 @@ public:
 		this->data = data;
 		this-> next = NULL;
 	}
+
+	//code to free memory
+	~Node(){
+		
+		int val = this -> data;
+
+		if(this->next!=NULL){
+			delete next;
+			this -> next = NULL;
+		}
+
+		cout << "memory deleted" << endl;
+	}
 };
 
 
@@ -62,6 +75,39 @@ void insertAtPos(Node* &tail, Node* &head,int pos, int data){
 	temp -> next = nodeToInsert;
 }
 
+
+//deleting any node with given position
+void deleteNode(Node* &head,int pos){
+
+	if(pos == 1){
+
+		Node* temp = head;
+		head = head -> next;
+		temp->next = NULL;
+		delete temp;
+	}
+
+	//have to traverse till the (n-1)th node....
+	else{
+
+		int cnt = 1;
+		Node* curr = head;
+		Node* prev = NULL;
+		
+		while(cnt < pos){
+			prev = curr;
+			curr = curr -> next;
+			cnt++;		
+		}
+
+		prev -> next = curr -> next;
+		curr -> next = NULL;
+		delete curr;
+	}
+}
+
+
+
 //travering through the list and printing the data
 void print(Node* &head){
 	
@@ -105,6 +151,15 @@ int main(){
 
 	insertAtPos(tail, head, 3, 22);
 	cout << "Insterted in between: " << endl;
+	print(head);
+
+
+
+	// cout << "head -> " << head -> data << endl;
+	// cout << "tail -> " << tail -> data << endl;
+	
+
+	deleteNode(head, 4);
 	print(head);
 	// //making new node and inserting in the begining
 	// Node* temp = new Node(9);
