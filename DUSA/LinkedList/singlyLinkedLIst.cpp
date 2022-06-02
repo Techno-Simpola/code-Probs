@@ -65,7 +65,7 @@ void insertAtPos(Node* &tail, Node* &head,int pos, int data){
 
 	if(temp -> next == NULL) //last node in the total LL
 	{
-		insertAtTail(head, data);
+		insertAtTail(tail, data);
 		return ;
 	}
 
@@ -77,7 +77,7 @@ void insertAtPos(Node* &tail, Node* &head,int pos, int data){
 
 
 //deleting any node with given position
-void deleteNode(Node* &head,int pos){
+void deleteNode(Node* &head, Node* &tail, int pos){
 
 	if(pos == 1){
 
@@ -90,6 +90,7 @@ void deleteNode(Node* &head,int pos){
 	//have to traverse till the (n-1)th node....
 	else{
 
+
 		int cnt = 1;
 		Node* curr = head;
 		Node* prev = NULL;
@@ -98,6 +99,10 @@ void deleteNode(Node* &head,int pos){
 			prev = curr;
 			curr = curr -> next;
 			cnt++;		
+		}
+
+		if(curr->next == NULL){
+			tail = prev;
 		}
 
 		prev -> next = curr -> next;
@@ -153,14 +158,14 @@ int main(){
 	cout << "Insterted in between: " << endl;
 	print(head);
 
-
-
-	// cout << "head -> " << head -> data << endl;
-	// cout << "tail -> " << tail -> data << endl;
 	
 
-	deleteNode(head, 4);
+	deleteNode(head, tail, 7);
 	print(head);
+
+	cout << "head -> " << head -> data << endl;
+	cout << "tail -> " << tail -> data << endl;
+
 	// //making new node and inserting in the begining
 	// Node* temp = new Node(9);
 	// temp->next = node1; //putting the address of previous node in temp node's next
