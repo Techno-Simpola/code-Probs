@@ -146,7 +146,8 @@ void deleteAtPos(Node *&head, Node *&tail, int pos)
 			delete curr;
 		}
 
-		else{
+		else
+		{
 			curr->prev = NULL;
 			prev->next = curr->next;
 			curr->next = NULL;
@@ -193,7 +194,8 @@ int main()
 
 	deleteAtPos(head, tail, 4);
 	print(head);
-	
-	cout << endl << "tail: " << tail->data << endl;
+
+	cout << endl
+		 << "tail: " << tail->data << endl;
 	return 0;
 }

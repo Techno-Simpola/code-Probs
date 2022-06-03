@@ -1,5 +1,10 @@
-10 
+Insterted at the tail: 
+10 11 19 21 124 171 
+Insterted in between: 
+10 11 22 19 21 124 171 
+memory deleted
+10 11 22 19 21 124 
+head -> 10
+tail -> 124
 
-length of the linked list is: 1
-5 10 
-5 10 12 
+Length of the list is: 6

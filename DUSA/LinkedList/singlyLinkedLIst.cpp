@@ -111,6 +111,19 @@ void deleteNode(Node* &head, Node* &tail, int pos){
 	}
 }
 
+int getLen(Node* &head){
+
+	int cnt = 1;
+	Node* temp = head;
+
+	while(temp->next!=NULL)
+	{
+		temp = temp->next;
+		cnt++;
+	}	
+
+	return cnt;
+}
 
 
 //travering through the list and printing the data
@@ -174,5 +187,8 @@ int main(){
 	// cout << endl;
 	// cout << node1->data<<endl;
 	// cout << node1->next<<endl;
+	int n = getLen(head);
+	cout << endl << "Length of the list is: " << n << endl;
+
 	return 0;
 }
