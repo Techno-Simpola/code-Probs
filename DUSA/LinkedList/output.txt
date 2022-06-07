@@ -1,3 +1,4 @@
-3 5 
-mem free for the node with data: 5
-3 
+10 11 19 21 124 171 
+
+Length of the list is: 6
+171 124 21 19 11 10 
