@@ -7,21 +7,22 @@ vector<int> solve(vector<int>& v1, vector<int>& v2, int n, int m){
 
 	int idx1 = 0, idx2 = 0;
 	int mainArrIdx = 0;
-	
-	while( idx1 < length1 && idx2 < length2 )
+	vector<int> ans;
+
+	while( idx1 < n && idx2 < m )
 	{
-		if(arr1[idx1] < arr2[idx2])
-			ans[mainArrIdx++] = arr1[idx1++];
+		if(v1[idx1] < v2[idx2])
+			ans.push_back(v1[idx1++]);
 		else
-			ans[mainArrIdx++] = arr2[idx2++]; 
+			ans.push_back([idx2++]);
 	}
 
-	while( idx1 < length1 ){
-		ans[mainArrIdx++] = arr1[idx1];
+	while( idx1 < n ){
+		ans.push_back(v1[idx1]);
 	}
 
-	while( idx2 < length2 ){
-		ans[mainArrIdx++] = arr2[idx2];	
+	while( idx2 < m ){
+		ans.push_back([idx2]);	
 	}
 
 	return ans;

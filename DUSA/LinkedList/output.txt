@@ -1,4 +1,3 @@
+Insterted at the tail: 
 10 11 19 21 124 171 
-
-Length of the list is: 6
-171 124 21 19 11 10 
+The linked list is not circular
