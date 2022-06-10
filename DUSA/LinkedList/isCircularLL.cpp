@@ -173,7 +173,60 @@ bool detectLoop(Node* head){
 }
 
 
-//travering through the list and printing the data
+
+//finding the start of the cycle
+Node *floydCycle(Node* head){
+        
+        if(head==NULL)
+            return NULL;
+        
+        Node* slow = head;
+        Node* fast = head;
+        
+        while( slow != NULL && fast != NULL && fast -> next != NULL){
+            slow = slow -> next;
+            fast = fast -> next -> next;
+            
+            if(slow==fast)
+                return slow;
+        }
+        
+        return NULL;
+    }
+        
+Node *startLoopNode(Node *head) {       
+        Node* intersection = floydCycle(head);
+        
+        if(intersection == NULL)
+            return NULL;
+        
+        Node* slow = head;
+        
+        while(slow != intersection){
+            slow = slow -> next;
+            intersection = intersection -> next;
+        }
+        
+        return slow;
+    }
+
+void removeLoop(Node* &head){
+
+	if(head == NULL)
+		return;
+
+	Node* startOfLoop = startLoopNode(head);
+
+	Node* temp = startOfLoop;
+	while(temp -> next != startOfLoop){
+		temp = temp -> next;
+	}
+
+	temp -> next = NULL;
+
+}
+
+//traversing through the list and printing the data
 void print(Node* &head){
 	
 	Node* temp = head;
@@ -219,8 +272,6 @@ int main(){
 	// cout << "Insterted in between: " << endl;
 	// print(head);
 
-	
-
 	// deleteNode(head, tail, 7);
 	// print(head);
 
@@ -232,14 +283,20 @@ int main(){
 	// cout << endl << "Length of the list is: " << n << endl;
 
 
+	tail -> next = head -> next;
+	Node* ans = startLoopNode(head);
 
-	bool ans = detectLoop(head);
+	cout << "startLoopNode -> data: " << ans -> data << endl;
+	// if(ans == 1)
+	// 	cout << "The linked list is circular" << endl;
 
-	if(ans == 1)
-		cout << "The linked list is circular" << endl;
+	// else
+	// 	cout << "The linked list is not circular" << endl;
 
-	else
-		cout << "The linked list is not circular" << endl;
 
+	cout << tail -> next << endl;
+	removeLoop(head);
+	print(head);
+	cout << tail -> next << endl;
 	return 0;
 }
