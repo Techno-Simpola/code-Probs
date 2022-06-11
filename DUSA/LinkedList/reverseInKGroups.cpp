@@ -64,7 +64,7 @@ Node* reverseKGroups(Node* &head, int k){
 
 	int cnt = 0;
 
-	while(curr != NULL && cnt > k){
+	while(curr != NULL && cnt < k){
 		forward = curr -> next;
 		curr -> next = prev;
 		prev = curr;

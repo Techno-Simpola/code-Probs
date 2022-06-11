@@ -192,7 +192,7 @@ Node *floydCycle(Node* head){
         }
         
         return NULL;
-    }
+}
         
 Node *startLoopNode(Node *head) {       
         Node* intersection = floydCycle(head);
@@ -208,7 +208,7 @@ Node *startLoopNode(Node *head) {
         }
         
         return slow;
-    }
+}
 
 void removeLoop(Node* &head){
 
