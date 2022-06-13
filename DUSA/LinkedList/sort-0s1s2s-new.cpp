@@ -26,8 +26,16 @@ void insertAtTail(Node *&tail, Node *&temp)
 Node *mergingOP(Node *zeroHead, Node *zeroTail, Node *oneHead, Node *oneTail, Node *twoHead, Node *twoTail)
 {
 
-    zeroTail->next = oneHead->next;
-    oneTail->next = twoHead->next;
+    if (oneHead->next != NULL)
+    {
+        zeroTail->next = oneHead->next;
+        oneTail->next = twoHead->next;
+    }
+    else
+    {
+        zeroTail->next = twoHead->next;
+    }
+
     twoTail->next = NULL;
     return zeroHead->next;
 }
