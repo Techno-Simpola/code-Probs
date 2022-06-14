@@ -25,7 +25,7 @@ bool isPossible(vector<int> books, int noOfStud, int mid, int n){
 
 	return true;
 }
-
+//this is the comment of which the color i dont like 
 int minAllocated(vector<int>& books, int n, int noOfStud){
 
 	int s = 0;
