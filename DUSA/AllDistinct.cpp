@@ -2,9 +2,10 @@
 #define ll long long
 using namespace std;
 
+// this is ok
+
 int main()
 {
-
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
