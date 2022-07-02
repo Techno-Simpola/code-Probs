@@ -38,11 +38,26 @@ Node *buildTree(Node *root)
     return root;
 }
 
+void inorderTraversal(Node *root){
+    //base case
+    if(root == NULL)
+        return;
+    
+    //L
+    inorderTraversal(root->left);   
+    //N
+    cout << root -> data << " ";
+    //R
+    inorderTraversal(root->right); 
+}
+
 int main()
 {
     Node *root = NULL;
 
     root = buildTree(root);
 
+    cout << "Inorder Travelsal: " << endl;
+    inorderTraversal(root);
     return 0;
 }

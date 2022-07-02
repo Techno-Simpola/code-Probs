@@ -38,11 +38,27 @@ Node *buildTree(Node *root)
     return root;
 }
 
+void preorderTraversal(Node *root)
+{
+    // base case
+    if (root == NULL)
+        return;
+
+    // N
+    cout << root->data << " ";
+    // L
+    preorderTraversal(root->left);
+    // R
+    preorderTraversal(root->right);
+}
+
 int main()
 {
     Node *root = NULL;
 
     root = buildTree(root);
 
+    cout << "PreOder Traversal: " << endl;
+    preorderTraversal(root);
     return 0;
 }

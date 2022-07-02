@@ -38,11 +38,27 @@ Node *buildTree(Node *root)
     return root;
 }
 
+void postorderTraversal(Node *root)
+{
+    // base case
+    if (root == NULL)
+        return;
+
+    // L
+    postorderTraversal(root->left);
+    // R
+    postorderTraversal(root->right);
+    // N
+    cout << root->data << " ";
+}
+
+
 int main()
 {
     Node *root = NULL;
 
     root = buildTree(root);
-
+    cout << "PostOrder Traversal" << endl;
+    postorderTraversal(root);
     return 0;
 }
