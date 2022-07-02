@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.html": "html",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "ostream": "cpp"
     }
 }
