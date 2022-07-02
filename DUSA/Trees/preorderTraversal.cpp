@@ -1,29 +1,32 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long
 
-class Node{
+class Node
+{
 
 public:
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 
-    Node(int data){
+    Node(int data)
+    {
         this->data = data;
         left = NULL;
         right = NULL;
     }
 };
 
-Node* buildTree(Node* root){
+Node *buildTree(Node *root)
+{
     int data;
     cout << "Enter the data:" << endl;
     cin >> data;
 
     root = new Node(data);
 
-    if(data == -1)
+    if (data == -1)
         return NULL;
 
     cout << "Enter data for inserting left of root" << endl;
@@ -35,11 +38,11 @@ Node* buildTree(Node* root){
     return root;
 }
 
-int main(){
-    Node* root = NULL;
+int main()
+{
+    Node *root = NULL;
 
     root = buildTree(root);
-
 
     return 0;
 }
