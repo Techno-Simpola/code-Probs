@@ -50,12 +50,12 @@
   border-color: #27c840 !important;
 }
 .titlebar-button.titlebar-min:hover {
-	background: #fdfdfd00 !important;
+	background: #1d1d1d00 !important;
 }
 
 /* Custom tab active color */
 .tab-background[selected="true"] {
-  background: #2c37d3 !important;
+  background: #424df1 !important;
 } 
 
 /* rework of container line
