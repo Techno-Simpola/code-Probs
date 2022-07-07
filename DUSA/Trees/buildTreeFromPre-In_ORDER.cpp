@@ -32,19 +32,25 @@ void printPostOrder(Node *root)
 class Solution
 {
 public:
-    int findPostion(int inOrder[], int n, int element)
-    {
+    // int findPostion(int inOrder[], int n, int element)
+    // {
 
-        for (int i = 0; i < n; i++)
-        {
-            if (inOrder[i] == element)
-                return i;
+    //     for (int i = 0; i < n; i++)
+    //     {
+    //         if (inOrder[i] == element)
+    //             return i;
+    //     }
+
+    //     return -1;
+    // }
+
+    void createMapping(map<int, int> &mp, int inOrder[], int n){
+        for(int i=0;i<n;i++){
+            mp[inOrder[i]] = i;
         }
-
-        return -1;
     }
 
-    Node *solve(int in[], int pre[], int &indexPre, int startIn, int endIn, int n)
+    Node *solve(int in[], int pre[], int &indexPre, int startIn, int endIn, int n, map<int, int> &mp)
     {
 
         if (indexPre >= n || startIn > endIn)
@@ -53,11 +59,11 @@ public:
         int element = pre[indexPre++];
 
         Node *current = new Node(element);
-        int pos = findPostion(in, n, element);
+        int pos = mp[element];
 
         // recursive calls
-        current->left = solve(in, pre, indexPre, startIn, pos - 1, n);
-        current->right = solve(in, pre, indexPre, pos + 1, endIn, n);
+        current->left = solve(in, pre, indexPre, startIn, pos - 1, n, mp);
+        current->right = solve(in, pre, indexPre, pos + 1, endIn, n, mp);
 
         return current;
     }
@@ -65,8 +71,9 @@ public:
     Node *buildTree(int in[], int pre[], int n)
     {
         int indexPre = 0;
-
-        Node *ans = solve(in, pre, indexPre, 0, n - 1, n);
+        map<int, int> mp;
+        createMapping(mp, in, n);
+        Node *ans = solve(in, pre, indexPre, 0, n - 1, n, mp);
         return ans;
     }
 };
