@@ -1,0 +1,36 @@
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Enter data for inserting left of root
+Enter the data:
+Enter data for inserting right of root
+Enter the data:
+Inorder Traversal using Morris Traversal: 
+
+1 2 4 7 5 10 3 6 

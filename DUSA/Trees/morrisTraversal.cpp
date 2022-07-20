@@ -51,19 +51,58 @@ void inorderTraversal(Node *root){
 }
 
 
-Node* findNode(Node* root){
-	
+Node* findPred(Node* root){
+	Node* pred = root->left;
+    while(pred->right != NULL && pred->right != root)
+        pred = pred -> right;
+
+    return pred;
 }
 
 vector<int> morrisTraversal(Node* root, vector<int> &arr){
 	
+    vector<int> ans;
+    if(root==NULL)
+        return ans;
 
+    Node* current = root;
+
+    while(current){
+
+        if(!current->left){
+            ans.push_back(current->data);
+            current = current->right;
+        }
+
+        else{
+            Node* predecessor = findPred(current);
+
+            if(predecessor->right == NULL){
+                predecessor->right = current;
+                current = current-> left;
+            }
+
+            else if(predecessor->right == current){
+                predecessor->right = NULL;
+                ans.push_back(current->data);
+                current = current->right;
+            }
+        }
+
+    }
+    return ans;
 }
 
 
 
 int main()
 {
+
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
     Node *root = NULL;
 
     root = buildTree(root);
@@ -76,6 +115,11 @@ int main()
 
     cout << "Inorder Traversal using Morris Traversal: " << endl;
     vector<int> morrisArr;
-    morrisTraversal(root, morrisArr); 
+    morrisTraversal(root, morrisArr);
+
+    for(auto i: morrisArr)
+        cout << morrisArr[i] << " ";
+    cout << endl;
+
     return 0;
 }
